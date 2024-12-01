@@ -1,0 +1,45 @@
+@Test
+	public void queue1() {
+		Square s1 = new Square(0, 0, false);
+		Square s2 = new Square(0, 1, false);
+		Square s3 = new Square(1, 0, true);
+		Square s4 = new Square(1, 1, false);
+		QueueWorklist queue = new QueueWorklist();
+		assertEquals(true,queue.isEmpty());
+		queue.add(s1);
+		queue.add(s2);
+		queue.add(s3);
+		queue.add(s4);
+		assertEquals(false,queue.isEmpty());
+		assertEquals(s1,queue.remove());
+		assertEquals(s2,queue.remove());
+		assertEquals(s3,queue.remove());
+		assertEquals(false,queue.isEmpty());
+		assertEquals(s4,queue.remove());
+		assertEquals(true,queue.isEmpty());
+		assertEquals(null,queue.remove());
+		assertEquals(true,queue.isEmpty());
+	}
+
+	@Test
+	public void stack1() {
+		Square s1 = new Square(0, 0, false);
+		Square s2 = new Square(0, 1, false);
+		Square s3 = new Square(1, 0, true);
+		Square s4 = new Square(1, 1, false);
+		StackWorklist stack = new StackWorklist();
+		assertEquals(true,stack.isEmpty());
+		stack.add(s1);
+		stack.add(s2);
+		stack.add(s3);
+		assertEquals(s3,stack.remove());
+		stack.add(s4);
+		assertEquals(false,stack.isEmpty());
+		assertEquals(s4,stack.remove());
+		assertEquals(s2,stack.remove());
+		assertEquals(false,stack.isEmpty());
+		assertEquals(s1,stack.remove());
+		assertEquals(true,stack.isEmpty());
+		assertEquals(null,stack.remove());
+		assertEquals(true,stack.isEmpty());
+	}
